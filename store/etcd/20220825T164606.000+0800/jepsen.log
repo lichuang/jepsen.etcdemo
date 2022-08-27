@@ -1,0 +1,115 @@
+2022-08-25 16:46:06,180{GMT}	INFO	[jepsen test runner] jepsen.core: Command line:
+lein run test --node localhost --username codedump --password 123456
+2022-08-25 16:46:06,195{GMT}	INFO	[jepsen test runner] jepsen.core: Running test:
+{:remote #jepsen.control.SSHRemote{:session nil}
+ :concurrency 1
+ :db
+ #object[jepsen.etcdemo$db$reify__346
+         "0x1bea7b0"
+         "jepsen.etcdemo$db$reify__346@1bea7b0"]
+ :leave-db-running? false
+ :name "etcd"
+ :logging-json? false
+ :start-time
+ #object[org.joda.time.DateTime "0x70aa58e1" "2022-08-25T16:46:06.000+08:00"]
+ :net
+ #object[jepsen.net$reify__9085 "0x154f8280" "jepsen.net$reify__9085@154f8280"]
+ :client
+ #object[jepsen.client$reify__8924
+         "0x24f90aff"
+         "jepsen.client$reify__8924@24f90aff"]
+ :barrier
+ #object[java.util.concurrent.CyclicBarrier
+         "0x7252bdb"
+         "java.util.concurrent.CyclicBarrier@7252bdb"]
+ :pure-generators true
+ :ssh
+ {:dummy? false,
+  :username "codedump",
+  :password "123456",
+  :strict-host-key-checking false,
+  :private-key-path nil}
+ :checker
+ #object[jepsen.checker$unbridled_optimism$reify__8609
+         "0x25ea068e"
+         "jepsen.checker$unbridled_optimism$reify__8609@25ea068e"]
+ :argv
+ ("test" "--node" "localhost" "--username" "codedump" "--password" "123456")
+ :nemesis
+ #object[jepsen.nemesis$reify__9186
+         "0x4cd8db31"
+         "jepsen.nemesis$reify__9186@4cd8db31"]
+ :active-histories
+ #object[clojure.lang.Atom "0x71eff6a3" {:status :ready, :val #{}}]
+ :nodes ["localhost"]
+ :test-count 1
+ :generator nil
+ :os
+ #object[jepsen.os.ubuntu.Ubuntu
+         "0x236a4d30"
+         "jepsen.os.ubuntu.Ubuntu@236a4d30"]
+ :time-limit 60}
+
+2022-08-25 16:46:06,310{GMT}	INFO	[jepsen node localhost] jepsen.os.ubuntu: localhost setting up ubuntu
+2022-08-25 16:46:06,997{GMT}	INFO	[jepsen node localhost] jepsen.os.debian: Installing #{libzip4}
+2022-08-25 16:46:07,411{GMT}	WARN	[main] jepsen.core: Test crashed!
+clojure.lang.ExceptionInfo: Command exited with non-zero status 100 on node localhost:
+sudo -S -u root bash -c "cd /; env DEBIAN_FRONTEND=noninteractive apt-get install -y --allow-downgrades --allow-change-held-packages libzip4"
+
+STDIN:
+null
+
+STDOUT:
+Reading package lists...
+Building dependency tree...
+Reading state information...
+
+
+STDERR:
+E: Unable to locate package libzip4
+
+	at slingshot.support$stack_trace.invoke(support.clj:201)
+	at jepsen.control$throw_on_nonzero_exit.invokeStatic(control.clj:150)
+	at jepsen.control$throw_on_nonzero_exit.invoke(control.clj:145)
+	at jepsen.control$exec_STAR_.invokeStatic(control.clj:194)
+	at jepsen.control$exec_STAR_.doInvoke(control.clj:191)
+	at clojure.lang.RestFn.applyTo(RestFn.java:137)
+	at clojure.core$apply.invokeStatic(core.clj:665)
+	at clojure.core$apply.invoke(core.clj:660)
+	at jepsen.control$exec.invokeStatic(control.clj:210)
+	at jepsen.control$exec.doInvoke(control.clj:204)
+	at clojure.lang.RestFn.applyTo(RestFn.java:137)
+	at clojure.core$apply.invokeStatic(core.clj:673)
+	at clojure.core$apply.doInvoke(core.clj:660)
+	at clojure.lang.RestFn.invoke(RestFn.java:749)
+	at jepsen.os.debian$install.invokeStatic(debian.clj:104)
+	at jepsen.os.debian$install.invoke(debian.clj:80)
+	at jepsen.os.ubuntu.Ubuntu$fn__334.invoke(ubuntu.clj:24)
+	at jepsen.os.ubuntu.Ubuntu.setup_BANG_(ubuntu.clj:22)
+	at jepsen.os$fn__2459$G__2453__2463.invoke(os.clj:4)
+	at jepsen.os$fn__2459$G__2452__2468.invoke(os.clj:4)
+	at clojure.core$partial$fn__5824.invoke(core.clj:2625)
+	at jepsen.control$on_nodes$fn__3161.invoke(control.clj:430)
+	at clojure.lang.AFn.applyToHelper(AFn.java:154)
+	at clojure.lang.AFn.applyTo(AFn.java:144)
+	at clojure.core$apply.invokeStatic(core.clj:665)
+	at clojure.core$with_bindings_STAR_.invokeStatic(core.clj:1973)
+	at clojure.core$with_bindings_STAR_.doInvoke(core.clj:1973)
+	at clojure.lang.RestFn.applyTo(RestFn.java:142)
+	at clojure.core$apply.invokeStatic(core.clj:669)
+	at clojure.core$bound_fn_STAR_$fn__5734.doInvoke(core.clj:2003)
+	at clojure.lang.RestFn.invoke(RestFn.java:408)
+	at dom_top.core$real_pmap_helper$build_thread__213$fn__214.invoke(core.clj:146)
+	at clojure.lang.AFn.applyToHelper(AFn.java:152)
+	at clojure.lang.AFn.applyTo(AFn.java:144)
+	at clojure.core$apply.invokeStatic(core.clj:665)
+	at clojure.core$with_bindings_STAR_.invokeStatic(core.clj:1973)
+	at clojure.core$with_bindings_STAR_.doInvoke(core.clj:1973)
+	at clojure.lang.RestFn.invoke(RestFn.java:425)
+	at clojure.lang.AFn.applyToHelper(AFn.java:156)
+	at clojure.lang.RestFn.applyTo(RestFn.java:132)
+	at clojure.core$apply.invokeStatic(core.clj:669)
+	at clojure.core$bound_fn_STAR_$fn__5734.doInvoke(core.clj:2003)
+	at clojure.lang.RestFn.invoke(RestFn.java:397)
+	at clojure.lang.AFn.run(AFn.java:22)
+	at java.base/java.lang.Thread.run(Thread.java:829)

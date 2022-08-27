@@ -1,0 +1,164 @@
+2022-08-27 16:34:35,088{GMT}	INFO	[jepsen test runner] jepsen.core: Command line:
+lein run test --node localhost --username codedump --password 123456 --time-limit 20
+2022-08-27 16:34:35,115{GMT}	INFO	[jepsen test runner] jepsen.core: Running test:
+{:remote #jepsen.control.SSHRemote{:session nil}
+ :concurrency 1
+ :db
+ #object[jepsen.etcdemo$db$reify__2513
+         "0x3a5c6009"
+         "jepsen.etcdemo$db$reify__2513@3a5c6009"]
+ :leave-db-running? false
+ :name "etcd"
+ :logging-json? false
+ :start-time
+ #object[org.joda.time.DateTime "0x7be3a837" "2022-08-27T16:34:35.000+08:00"]
+ :net
+ #object[jepsen.net$reify__9085 "0x247d44b4" "jepsen.net$reify__9085@247d44b4"]
+ :client #jepsen.etcdemo.Client{:conn nil}
+ :barrier
+ #object[java.util.concurrent.CyclicBarrier
+         "0x640028f2"
+         "java.util.concurrent.CyclicBarrier@640028f2"]
+ :pure-generators true
+ :ssh
+ {:dummy? false,
+  :username "codedump",
+  :password "123456",
+  :strict-host-key-checking false,
+  :private-key-path nil}
+ :checker
+ #object[jepsen.checker$linearizable$reify__8632
+         "0x48b744fd"
+         "jepsen.checker$linearizable$reify__8632@48b744fd"]
+ :argv
+ ("test"
+  "--node"
+  "localhost"
+  "--username"
+  "codedump"
+  "--password"
+  "123456"
+  "--time-limit"
+  "20")
+ :nemesis
+ #object[jepsen.nemesis$partitioner$reify__9233
+         "0x2ef3efcc"
+         "jepsen.nemesis$partitioner$reify__9233@2ef3efcc"]
+ :active-histories
+ #object[clojure.lang.Atom "0x4619854a" {:status :ready, :val #{}}]
+ :nodes ["localhost"]
+ :test-count 1
+ :generator
+ (jepsen.generator.TimeLimit
+  {:limit 20000000000,
+   :cutoff nil,
+   :gen (jepsen.generator.Any
+         {:gens [(jepsen.generator.OnThreads
+                  {:f #{:nemesis},
+                   :gen ({:type :sleep, :value 5}
+                         {:type :info, :f :start}
+                         {:type :sleep, :value 5}
+                         {:type :info, :f :stop}
+                         {:type :sleep, :value 5}
+                         {:type :info, :f :start}
+                         {:type :sleep, :value 5}
+                         {:type :info, :f :stop}
+                         ...)})
+                 (jepsen.generator.OnThreads
+                  {:f #object[clojure.core$complement$fn__5654
+                              "0x5e3a5f0c"
+                              "clojure.core$complement$fn__5654@5e3a5f0c"],
+                   :gen (jepsen.generator.Stagger
+                         {:dt 2000000000,
+                          :next-time nil,
+                          :gen (jepsen.generator.Mix
+                                {:i 1,
+                                 :gens [#object[jepsen.etcdemo$r
+                                                "0x5afaae7e"
+                                                "jepsen.etcdemo$r@5afaae7e"]
+                                        #object[jepsen.etcdemo$w
+                                                "0x7364073b"
+                                                "jepsen.etcdemo$w@7364073b"]
+                                        #object[jepsen.etcdemo$cas
+                                                "0x50331591"
+                                                "jepsen.etcdemo$cas@50331591"]]})})})]})})
+ :os
+ #object[jepsen.os.ubuntu.Ubuntu
+         "0x5cfde2a4"
+         "jepsen.os.ubuntu.Ubuntu@5cfde2a4"]
+ :time-limit 20}
+
+2022-08-27 16:34:35,215{GMT}	INFO	[jepsen node localhost] jepsen.os.ubuntu: localhost setting up ubuntu
+2022-08-27 16:34:35,993{GMT}	INFO	[jepsen test runner] jepsen.db: Tearing down DB
+2022-08-27 16:34:35,994{GMT}	INFO	[jepsen node localhost] jepsen.etcdemo: localhost tearing down etcd
+2022-08-27 16:34:35,995{GMT}	INFO	[jepsen node localhost] jepsen.control.util: Stopping etcd
+2022-08-27 16:34:36,304{GMT}	INFO	[jepsen test runner] jepsen.db: Setting up DB
+2022-08-27 16:34:36,305{GMT}	INFO	[jepsen node localhost] jepsen.etcdemo: localhost installing etcd v3.1.5
+2022-08-27 16:34:37,525{GMT}	INFO	[jepsen node localhost] jepsen.control.util: starting etcd
+2022-08-27 16:34:47,731{GMT}	INFO	[jepsen test runner] jepsen.core: Relative time begins now
+2022-08-27 16:34:47,951{GMT}	INFO	[jepsen worker 0] jepsen.util: 0	:invoke	:write	2
+2022-08-27 16:34:47,991{GMT}	INFO	[jepsen worker 0] jepsen.util: 0	:ok	:write	2
+2022-08-27 16:34:48,351{GMT}	INFO	[jepsen worker 0] jepsen.util: 0	:invoke	:read	nil
+2022-08-27 16:34:48,358{GMT}	INFO	[jepsen worker 0] jepsen.util: 0	:ok	:read	2
+2022-08-27 16:34:49,295{GMT}	INFO	[jepsen worker 0] jepsen.util: 0	:invoke	:read	nil
+2022-08-27 16:34:49,300{GMT}	INFO	[jepsen worker 0] jepsen.util: 0	:ok	:read	2
+2022-08-27 16:34:50,070{GMT}	INFO	[jepsen worker 0] jepsen.util: 0	:invoke	:write	1
+2022-08-27 16:34:50,074{GMT}	INFO	[jepsen worker 0] jepsen.util: 0	:ok	:write	1
+2022-08-27 16:34:51,790{GMT}	INFO	[jepsen worker 0] jepsen.util: 0	:invoke	:write	1
+2022-08-27 16:34:51,795{GMT}	INFO	[jepsen worker 0] jepsen.util: 0	:ok	:write	1
+2022-08-27 16:34:52,753{GMT}	INFO	[jepsen worker 0] jepsen.util: 0	:invoke	:read	nil
+2022-08-27 16:34:52,757{GMT}	INFO	[jepsen worker 0] jepsen.util: 0	:ok	:read	1
+2022-08-27 16:34:52,953{GMT}	INFO	[jepsen worker nemesis] jepsen.util: :nemesis	:info	:start	nil
+2022-08-27 16:34:52,967{GMT}	INFO	[jepsen worker nemesis] jepsen.util: :nemesis	:info	:start	[:isolated {"localhost" #{}}]
+2022-08-27 16:34:53,566{GMT}	INFO	[jepsen worker 0] jepsen.util: 0	:invoke	:cas	[2 4]
+2022-08-27 16:34:53,576{GMT}	INFO	[jepsen worker 0] jepsen.util: 0	:fail	:cas	[2 4]
+2022-08-27 16:34:54,727{GMT}	INFO	[jepsen worker 0] jepsen.util: 0	:invoke	:read	nil
+2022-08-27 16:34:54,731{GMT}	INFO	[jepsen worker 0] jepsen.util: 0	:ok	:read	1
+2022-08-27 16:34:55,240{GMT}	INFO	[jepsen worker 0] jepsen.util: 0	:invoke	:read	nil
+2022-08-27 16:34:55,244{GMT}	INFO	[jepsen worker 0] jepsen.util: 0	:ok	:read	1
+2022-08-27 16:34:56,536{GMT}	INFO	[jepsen worker 0] jepsen.util: 0	:invoke	:write	0
+2022-08-27 16:34:56,541{GMT}	INFO	[jepsen worker 0] jepsen.util: 0	:ok	:write	0
+2022-08-27 16:34:57,632{GMT}	INFO	[jepsen worker 0] jepsen.util: 0	:invoke	:read	nil
+2022-08-27 16:34:57,636{GMT}	INFO	[jepsen worker 0] jepsen.util: 0	:ok	:read	0
+2022-08-27 16:34:57,968{GMT}	INFO	[jepsen worker nemesis] jepsen.util: :nemesis	:info	:stop	nil
+2022-08-27 16:34:58,152{GMT}	INFO	[jepsen worker 0] jepsen.util: 0	:invoke	:read	nil
+2022-08-27 16:34:58,156{GMT}	INFO	[jepsen worker 0] jepsen.util: 0	:ok	:read	0
+2022-08-27 16:34:58,172{GMT}	INFO	[jepsen worker nemesis] jepsen.util: :nemesis	:info	:stop	:network-healed
+2022-08-27 16:34:58,989{GMT}	INFO	[jepsen worker 0] jepsen.util: 0	:invoke	:cas	[2 0]
+2022-08-27 16:34:58,995{GMT}	INFO	[jepsen worker 0] jepsen.util: 0	:fail	:cas	[2 0]
+2022-08-27 16:35:00,406{GMT}	INFO	[jepsen worker 0] jepsen.util: 0	:invoke	:read	nil
+2022-08-27 16:35:00,411{GMT}	INFO	[jepsen worker 0] jepsen.util: 0	:ok	:read	0
+2022-08-27 16:35:01,634{GMT}	INFO	[jepsen worker 0] jepsen.util: 0	:invoke	:read	nil
+2022-08-27 16:35:01,638{GMT}	INFO	[jepsen worker 0] jepsen.util: 0	:ok	:read	0
+2022-08-27 16:35:02,873{GMT}	INFO	[jepsen worker 0] jepsen.util: 0	:invoke	:write	4
+2022-08-27 16:35:02,877{GMT}	INFO	[jepsen worker 0] jepsen.util: 0	:ok	:write	4
+2022-08-27 16:35:03,174{GMT}	INFO	[jepsen worker nemesis] jepsen.util: :nemesis	:info	:start	nil
+2022-08-27 16:35:03,176{GMT}	INFO	[jepsen worker nemesis] jepsen.util: :nemesis	:info	:start	[:isolated {"localhost" #{}}]
+2022-08-27 16:35:04,511{GMT}	INFO	[jepsen worker 0] jepsen.util: 0	:invoke	:read	nil
+2022-08-27 16:35:04,515{GMT}	INFO	[jepsen worker 0] jepsen.util: 0	:ok	:read	4
+2022-08-27 16:35:06,093{GMT}	INFO	[jepsen worker 0] jepsen.util: 0	:invoke	:cas	[4 4]
+2022-08-27 16:35:06,098{GMT}	INFO	[jepsen worker 0] jepsen.util: 0	:ok	:cas	[4 4]
+2022-08-27 16:35:06,128{GMT}	INFO	[jepsen worker 0] jepsen.util: 0	:invoke	:read	nil
+2022-08-27 16:35:06,131{GMT}	INFO	[jepsen worker 0] jepsen.util: 0	:ok	:read	4
+2022-08-27 16:35:08,383{GMT}	INFO	[jepsen test runner] jepsen.core: Run complete, writing
+2022-08-27 16:35:08,406{GMT}	INFO	[jepsen test runner] jepsen.core: Analyzing...
+2022-08-27 16:35:08,436{GMT}	INFO	[jepsen test runner] jepsen.core: Analysis complete
+2022-08-27 16:35:08,441{GMT}	INFO	[jepsen results] jepsen.store: Wrote /home/codedump/source/jepsen.etcdemo/store/etcd/20220827T163435.000+0800/results.edn
+2022-08-27 16:35:08,442{GMT}	INFO	[jepsen node localhost] jepsen.etcdemo: localhost tearing down etcd
+2022-08-27 16:35:08,442{GMT}	INFO	[jepsen node localhost] jepsen.control.util: Stopping etcd
+2022-08-27 16:35:08,767{GMT}	INFO	[jepsen test runner] jepsen.core: {:valid? true,
+ :configs
+ ({:model {:value 4},
+   :last-op
+   {:process 0,
+    :type :ok,
+    :f :read,
+    :value 4,
+    :index 43,
+    :time 18401711528},
+   :pending []}),
+ :analyzer :linear,
+ :final-paths ()}
+
+
+Everything looks good! ヽ(‘ー`)ノ

@@ -1,0 +1,11 @@
+{:valid? true,
+ :configs ({:model #knossos.model.CASRegister{:value 3},
+            :last-op {:process 0,
+                      :type :ok,
+                      :f :read,
+                      :value 3,
+                      :index 33,
+                      :time 14485411299},
+            :pending []}),
+ :analyzer :linear,
+ :final-paths ()}

@@ -1,0 +1,67 @@
+2022-08-25 19:22:59,564{GMT}	INFO	[jepsen test runner] jepsen.core: Command line:
+lein run test --node localhost --username codedump --password 123456
+2022-08-25 19:22:59,579{GMT}	INFO	[jepsen test runner] jepsen.core: Running test:
+{:remote #jepsen.control.SSHRemote{:session nil}
+ :concurrency 1
+ :db
+ #object[jepsen.etcdemo$db$reify__2460
+         "0x267309f7"
+         "jepsen.etcdemo$db$reify__2460@267309f7"]
+ :leave-db-running? false
+ :name "etcd"
+ :logging-json? false
+ :start-time
+ #object[org.joda.time.DateTime "0x5bbf3869" "2022-08-25T19:22:59.000+08:00"]
+ :net
+ #object[jepsen.net$reify__9085 "0x64dfa1a3" "jepsen.net$reify__9085@64dfa1a3"]
+ :client #jepsen.etcdemo.Client{:conn nil}
+ :barrier
+ #object[java.util.concurrent.CyclicBarrier
+         "0x1f5a1ad4"
+         "java.util.concurrent.CyclicBarrier@1f5a1ad4"]
+ :pure-generators true
+ :ssh
+ {:dummy? false,
+  :username "codedump",
+  :password "123456",
+  :strict-host-key-checking false,
+  :private-key-path nil}
+ :checker
+ #object[jepsen.checker$unbridled_optimism$reify__8609
+         "0x7866ffa"
+         "jepsen.checker$unbridled_optimism$reify__8609@7866ffa"]
+ :argv
+ ("test" "--node" "localhost" "--username" "codedump" "--password" "123456")
+ :nemesis
+ #object[jepsen.nemesis$reify__9186
+         "0x25d87313"
+         "jepsen.nemesis$reify__9186@25d87313"]
+ :active-histories
+ #object[clojure.lang.Atom "0x213bd66a" {:status :ready, :val #{}}]
+ :nodes ["localhost"]
+ :test-count 1
+ :generator nil
+ :os
+ #object[jepsen.os.ubuntu.Ubuntu
+         "0x244c0fbe"
+         "jepsen.os.ubuntu.Ubuntu@244c0fbe"]
+ :time-limit 60}
+
+2022-08-25 19:22:59,679{GMT}	INFO	[jepsen node localhost] jepsen.os.ubuntu: localhost setting up ubuntu
+2022-08-25 19:23:00,456{GMT}	INFO	[jepsen test runner] jepsen.db: Tearing down DB
+2022-08-25 19:23:00,458{GMT}	INFO	[jepsen node localhost] jepsen.etcdemo: localhost tearing down etcd
+2022-08-25 19:23:00,458{GMT}	INFO	[jepsen node localhost] jepsen.control.util: Stopping etcd
+2022-08-25 19:23:00,766{GMT}	INFO	[jepsen test runner] jepsen.db: Setting up DB
+2022-08-25 19:23:00,768{GMT}	INFO	[jepsen node localhost] jepsen.etcdemo: localhost installing etcd v3.1.5
+2022-08-25 19:23:01,988{GMT}	INFO	[jepsen node localhost] jepsen.control.util: starting etcd
+2022-08-25 19:23:12,194{GMT}	INFO	[jepsen test runner] jepsen.core: Relative time begins now
+2022-08-25 19:23:12,218{GMT}	INFO	[jepsen test runner] jepsen.core: Run complete, writing
+2022-08-25 19:23:12,227{GMT}	INFO	[jepsen test runner] jepsen.core: Analyzing...
+2022-08-25 19:23:12,227{GMT}	INFO	[jepsen test runner] jepsen.core: Analysis complete
+2022-08-25 19:23:12,242{GMT}	INFO	[jepsen results] jepsen.store: Wrote /home/codedump/source/jepsen.etcdemo/store/etcd/20220825T192259.000+0800/results.edn
+2022-08-25 19:23:12,243{GMT}	INFO	[jepsen node localhost] jepsen.etcdemo: localhost tearing down etcd
+2022-08-25 19:23:12,243{GMT}	INFO	[jepsen node localhost] jepsen.control.util: Stopping etcd
+2022-08-25 19:23:12,559{GMT}	INFO	[jepsen test runner] jepsen.core: {:valid? true}
+
+
+Everything looks good! ヽ(‘ー`)ノ

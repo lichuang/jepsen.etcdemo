@@ -1,0 +1,28 @@
+{:type :invoke, :f :cas, :value [0 0], :time 18438450, :process 0, :index 0}
+{:type :fail, :f :cas, :value [0 0], :time 70114594, :process 0, :error :not-found, :index 1}
+{:type :invoke, :f :write, :value 4, :time 1248148526, :process 0, :index 2}
+{:type :ok, :f :write, :value 4, :time 1253978022, :process 0, :index 3}
+{:type :invoke, :f :cas, :value [3 3], :time 3029781505, :process 0, :index 4}
+{:type :fail, :f :cas, :value [3 3], :time 3036736220, :process 0, :index 5}
+{:type :invoke, :f :read, :value nil, :time 4844789598, :process 0, :index 6}
+{:type :ok, :f :read, :value 4, :time 4850608394, :process 0, :index 7}
+{:type :invoke, :f :write, :value 3, :time 6292448574, :process 0, :index 8}
+{:type :ok, :f :write, :value 3, :time 6298179505, :process 0, :index 9}
+{:type :invoke, :f :cas, :value [4 4], :time 6689992030, :process 0, :index 10}
+{:type :fail, :f :cas, :value [4 4], :time 6692863990, :process 0, :index 11}
+{:type :invoke, :f :read, :value nil, :time 8114154923, :process 0, :index 12}
+{:type :ok, :f :read, :value 3, :time 8119220855, :process 0, :index 13}
+{:type :invoke, :f :cas, :value [4 4], :time 8351141062, :process 0, :index 14}
+{:type :fail, :f :cas, :value [4 4], :time 8357448815, :process 0, :index 15}
+{:type :invoke, :f :write, :value 2, :time 9906095688, :process 0, :index 16}
+{:type :ok, :f :write, :value 2, :time 9912310528, :process 0, :index 17}
+{:type :invoke, :f :write, :value 1, :time 10464114400, :process 0, :index 18}
+{:type :ok, :f :write, :value 1, :time 10469515279, :process 0, :index 19}
+{:type :invoke, :f :write, :value 4, :time 10931321623, :process 0, :index 20}
+{:type :ok, :f :write, :value 4, :time 10936744234, :process 0, :index 21}
+{:type :invoke, :f :read, :value nil, :time 12762382104, :process 0, :index 22}
+{:type :ok, :f :read, :value 4, :time 12767116972, :process 0, :index 23}
+{:type :invoke, :f :read, :value nil, :time 14357934550, :process 0, :index 24}
+{:type :ok, :f :read, :value 4, :time 14362516984, :process 0, :index 25}
+{:type :invoke, :f :write, :value 3, :time 14761459841, :process 0, :index 26}
+{:type :ok, :f :write, :value 3, :time 14766514166, :process 0, :index 27}

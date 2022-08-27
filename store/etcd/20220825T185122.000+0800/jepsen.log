@@ -1,0 +1,114 @@
+2022-08-25 18:51:22,519{GMT}	INFO	[jepsen test runner] jepsen.core: Command line:
+lein run test --node localhost --username codedump --password 123456
+2022-08-25 18:51:22,535{GMT}	INFO	[jepsen test runner] jepsen.core: Running test:
+{:remote #jepsen.control.SSHRemote{:session nil}
+ :concurrency 1
+ :db
+ #object[jepsen.etcdemo$db$reify__352
+         "0x45d46254"
+         "jepsen.etcdemo$db$reify__352@45d46254"]
+ :leave-db-running? false
+ :name "etcd"
+ :logging-json? false
+ :start-time
+ #object[org.joda.time.DateTime "0x7c048b30" "2022-08-25T18:51:22.000+08:00"]
+ :net
+ #object[jepsen.net$reify__9085 "0x309cf657" "jepsen.net$reify__9085@309cf657"]
+ :client
+ #object[jepsen.client$reify__8924
+         "0x4d4c4b14"
+         "jepsen.client$reify__8924@4d4c4b14"]
+ :barrier
+ #object[java.util.concurrent.CyclicBarrier
+         "0x49925d21"
+         "java.util.concurrent.CyclicBarrier@49925d21"]
+ :pure-generators true
+ :ssh
+ {:dummy? false,
+  :username "codedump",
+  :password "123456",
+  :strict-host-key-checking false,
+  :private-key-path nil}
+ :checker
+ #object[jepsen.checker$unbridled_optimism$reify__8609
+         "0x11170228"
+         "jepsen.checker$unbridled_optimism$reify__8609@11170228"]
+ :argv
+ ("test" "--node" "localhost" "--username" "codedump" "--password" "123456")
+ :nemesis
+ #object[jepsen.nemesis$reify__9186
+         "0x46ee7013"
+         "jepsen.nemesis$reify__9186@46ee7013"]
+ :active-histories
+ #object[clojure.lang.Atom "0x2e0163cb" {:status :ready, :val #{}}]
+ :nodes ["localhost"]
+ :test-count 1
+ :generator nil
+ :os
+ #object[jepsen.os.ubuntu.Ubuntu
+         "0x1d7f7962"
+         "jepsen.os.ubuntu.Ubuntu@1d7f7962"]
+ :time-limit 60}
+
+2022-08-25 18:51:22,664{GMT}	INFO	[jepsen node localhost] jepsen.os.ubuntu: localhost setting up ubuntu
+2022-08-25 18:51:23,470{GMT}	INFO	[jepsen test runner] jepsen.db: Tearing down DB
+2022-08-25 18:51:23,471{GMT}	INFO	[jepsen node localhost] jepsen.etcdemo: localhost tearing down etcd
+2022-08-25 18:51:23,474{GMT}	INFO	[jepsen test runner] jepsen.db: Setting up DB
+2022-08-25 18:51:23,475{GMT}	INFO	[jepsen node localhost] jepsen.etcdemo: localhost installing etcd v3.1.5
+2022-08-25 18:51:24,698{GMT}	INFO	[jepsen node localhost] jepsen.control.util: starting etcd
+2022-08-25 18:51:24,804{GMT}	INFO	[jepsen node localhost] jepsen.etcdemo: localhost tearing down etcd
+2022-08-25 18:51:24,813{GMT}	WARN	[main] jepsen.core: Test crashed!
+clojure.lang.ExceptionInfo: Command exited with non-zero status 1 on node localhost:
+sudo -S -u root bash -c "cd /; echo \`date +'%Y-%m-%d %H:%M:%S'\` \"Jepsen starting\" etcd \"--log-output stderr --name localhost --listen-peer-urls http://localhost:2380 --listen-client-urls http://localhost:2379 --advertise-client-urls http://localhost:2379 --initial-cluster-state new --initial-advertise-peer-urls http://localhost:2380 --initial-cluster localhost=http://localhost:2380\" >> /home/codedump/local/opt/etcd/var/etcd.log"
+
+STDIN:
+null
+
+STDOUT:
+
+
+STDERR:
+bash: line 1: /home/codedump/local/opt/etcd/var/etcd.log: No such file or directory
+
+	at slingshot.support$stack_trace.invoke(support.clj:201)
+	at jepsen.control$throw_on_nonzero_exit.invokeStatic(control.clj:150)
+	at jepsen.control$throw_on_nonzero_exit.invoke(control.clj:145)
+	at jepsen.control$exec_STAR_.invokeStatic(control.clj:194)
+	at jepsen.control$exec_STAR_.doInvoke(control.clj:191)
+	at clojure.lang.RestFn.applyTo(RestFn.java:137)
+	at clojure.core$apply.invokeStatic(core.clj:665)
+	at clojure.core$apply.invoke(core.clj:660)
+	at jepsen.control$exec.invokeStatic(control.clj:210)
+	at jepsen.control$exec.doInvoke(control.clj:204)
+	at clojure.lang.RestFn.invoke(RestFn.java:551)
+	at jepsen.control.util$start_daemon_BANG_.invokeStatic(util.clj:273)
+	at jepsen.control.util$start_daemon_BANG_.doInvoke(util.clj:259)
+	at clojure.lang.RestFn.invoke(RestFn.java:2835)
+	at jepsen.etcdemo$db$reify__352.setup_BANG_(etcdemo.clj:51)
+	at jepsen.db$fn__3288$G__3267__3292.invoke(db.clj:11)
+	at jepsen.db$fn__3288$G__3266__3297.invoke(db.clj:11)
+	at clojure.core$partial$fn__5824.invoke(core.clj:2625)
+	at jepsen.control$on_nodes$fn__3161.invoke(control.clj:430)
+	at clojure.lang.AFn.applyToHelper(AFn.java:154)
+	at clojure.lang.AFn.applyTo(AFn.java:144)
+	at clojure.core$apply.invokeStatic(core.clj:665)
+	at clojure.core$with_bindings_STAR_.invokeStatic(core.clj:1973)
+	at clojure.core$with_bindings_STAR_.doInvoke(core.clj:1973)
+	at clojure.lang.RestFn.applyTo(RestFn.java:142)
+	at clojure.core$apply.invokeStatic(core.clj:669)
+	at clojure.core$bound_fn_STAR_$fn__5734.doInvoke(core.clj:2003)
+	at clojure.lang.RestFn.invoke(RestFn.java:408)
+	at dom_top.core$real_pmap_helper$build_thread__213$fn__214.invoke(core.clj:146)
+	at clojure.lang.AFn.applyToHelper(AFn.java:152)
+	at clojure.lang.AFn.applyTo(AFn.java:144)
+	at clojure.core$apply.invokeStatic(core.clj:665)
+	at clojure.core$with_bindings_STAR_.invokeStatic(core.clj:1973)
+	at clojure.core$with_bindings_STAR_.doInvoke(core.clj:1973)
+	at clojure.lang.RestFn.invoke(RestFn.java:425)
+	at clojure.lang.AFn.applyToHelper(AFn.java:156)
+	at clojure.lang.RestFn.applyTo(RestFn.java:132)
+	at clojure.core$apply.invokeStatic(core.clj:669)
+	at clojure.core$bound_fn_STAR_$fn__5734.doInvoke(core.clj:2003)
+	at clojure.lang.RestFn.invoke(RestFn.java:397)
+	at clojure.lang.AFn.run(AFn.java:22)
+	at java.base/java.lang.Thread.run(Thread.java:829)

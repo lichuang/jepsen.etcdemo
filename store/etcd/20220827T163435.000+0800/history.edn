@@ -1,0 +1,44 @@
+{:type :invoke, :f :write, :value 2, :time 218854347, :process 0, :index 0}
+{:type :ok, :f :write, :value 2, :time 261411755, :process 0, :index 1}
+{:type :invoke, :f :read, :value nil, :time 620780227, :process 0, :index 2}
+{:type :ok, :f :read, :value 2, :time 628525040, :process 0, :index 3}
+{:type :invoke, :f :read, :value nil, :time 1564254533, :process 0, :index 4}
+{:type :ok, :f :read, :value 2, :time 1569843925, :process 0, :index 5}
+{:type :invoke, :f :write, :value 1, :time 2339435061, :process 0, :index 6}
+{:type :ok, :f :write, :value 1, :time 2344762251, :process 0, :index 7}
+{:type :invoke, :f :write, :value 1, :time 4059596160, :process 0, :index 8}
+{:type :ok, :f :write, :value 1, :time 4065382827, :process 0, :index 9}
+{:type :invoke, :f :read, :value nil, :time 5022062208, :process 0, :index 10}
+{:type :ok, :f :read, :value 1, :time 5027257170, :process 0, :index 11}
+{:type :info, :f :start, :time 5222325364, :process :nemesis, :index 12}
+{:type :info, :f :start, :time 5227037216, :process :nemesis, :value [:isolated {"localhost" #{}}], :index 13}
+{:type :invoke, :f :cas, :value [2 4], :time 5835512410, :process 0, :index 14}
+{:type :fail, :f :cas, :value [2 4], :time 5846897757, :process 0, :index 15}
+{:type :invoke, :f :read, :value nil, :time 6996347686, :process 0, :index 16}
+{:type :ok, :f :read, :value 1, :time 7001083999, :process 0, :index 17}
+{:type :invoke, :f :read, :value nil, :time 7509752907, :process 0, :index 18}
+{:type :ok, :f :read, :value 1, :time 7514370947, :process 0, :index 19}
+{:type :invoke, :f :write, :value 0, :time 8805854740, :process 0, :index 20}
+{:type :ok, :f :write, :value 0, :time 8810903004, :process 0, :index 21}
+{:type :invoke, :f :read, :value nil, :time 9901154794, :process 0, :index 22}
+{:type :ok, :f :read, :value 0, :time 9906081526, :process 0, :index 23}
+{:type :info, :f :stop, :time 10237720088, :process :nemesis, :index 24}
+{:type :invoke, :f :read, :value nil, :time 10421760008, :process 0, :index 25}
+{:type :ok, :f :read, :value 0, :time 10426365260, :process 0, :index 26}
+{:type :info, :f :stop, :time 10442465057, :process :nemesis, :value :network-healed, :index 27}
+{:type :invoke, :f :cas, :value [2 0], :time 11258547091, :process 0, :index 28}
+{:type :fail, :f :cas, :value [2 0], :time 11264974769, :process 0, :index 29}
+{:type :invoke, :f :read, :value nil, :time 12676121666, :process 0, :index 30}
+{:type :ok, :f :read, :value 0, :time 12681022358, :process 0, :index 31}
+{:type :invoke, :f :read, :value nil, :time 13903862327, :process 0, :index 32}
+{:type :ok, :f :read, :value 0, :time 13908435751, :process 0, :index 33}
+{:type :invoke, :f :write, :value 4, :time 15142645443, :process 0, :index 34}
+{:type :ok, :f :write, :value 4, :time 15146993394, :process 0, :index 35}
+{:type :info, :f :start, :time 15443612480, :process :nemesis, :index 36}
+{:type :info, :f :start, :time 15445827656, :process :nemesis, :value [:isolated {"localhost" #{}}], :index 37}
+{:type :invoke, :f :read, :value nil, :time 16780151241, :process 0, :index 38}
+{:type :ok, :f :read, :value 4, :time 16785166814, :process 0, :index 39}
+{:type :invoke, :f :cas, :value [4 4], :time 18363017407, :process 0, :index 40}
+{:type :ok, :f :cas, :value [4 4], :time 18368250610, :process 0, :index 41}
+{:type :invoke, :f :read, :value nil, :time 18397593972, :process 0, :index 42}
+{:type :ok, :f :read, :value 4, :time 18401711528, :process 0, :index 43}

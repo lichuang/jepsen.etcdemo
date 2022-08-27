@@ -1,0 +1,32 @@
+{:type :invoke, :f :write, :value 4, :time 51260439, :process 0, :index 0}
+{:type :ok, :f :write, :value 4, :time 96600924, :process 0, :index 1}
+{:type :invoke, :f :read, :value nil, :time 1130095965, :process 0, :index 2}
+{:type :ok, :f :read, :value 4, :time 1137991287, :process 0, :index 3}
+{:type :invoke, :f :read, :value nil, :time 2428309201, :process 0, :index 4}
+{:type :ok, :f :read, :value 4, :time 2433317434, :process 0, :index 5}
+{:type :invoke, :f :write, :value 4, :time 3705524078, :process 0, :index 6}
+{:type :ok, :f :write, :value 4, :time 3711077813, :process 0, :index 7}
+{:type :invoke, :f :write, :value 0, :time 5145630972, :process 0, :index 8}
+{:type :ok, :f :write, :value 0, :time 5152453371, :process 0, :index 9}
+{:type :invoke, :f :read, :value nil, :time 5243479607, :process 0, :index 10}
+{:type :ok, :f :read, :value 0, :time 5248728704, :process 0, :index 11}
+{:type :invoke, :f :write, :value 4, :time 7098871046, :process 0, :index 12}
+{:type :ok, :f :write, :value 4, :time 7105163347, :process 0, :index 13}
+{:type :invoke, :f :cas, :value [3 1], :time 7690198221, :process 0, :index 14}
+{:type :fail, :f :cas, :value [3 1], :time 7704574126, :process 0, :index 15}
+{:type :invoke, :f :write, :value 1, :time 8659933442, :process 0, :index 16}
+{:type :ok, :f :write, :value 1, :time 8664840369, :process 0, :index 17}
+{:type :invoke, :f :cas, :value [0 3], :time 8702636538, :process 0, :index 18}
+{:type :fail, :f :cas, :value [0 3], :time 8705262857, :process 0, :index 19}
+{:type :invoke, :f :write, :value 0, :time 9890450506, :process 0, :index 20}
+{:type :ok, :f :write, :value 0, :time 9895699413, :process 0, :index 21}
+{:type :invoke, :f :cas, :value [0 2], :time 11107949353, :process 0, :index 22}
+{:type :ok, :f :cas, :value [0 2], :time 11112411950, :process 0, :index 23}
+{:type :invoke, :f :write, :value 0, :time 11365018388, :process 0, :index 24}
+{:type :ok, :f :write, :value 0, :time 11370203560, :process 0, :index 25}
+{:type :invoke, :f :write, :value 4, :time 12515492734, :process 0, :index 26}
+{:type :ok, :f :write, :value 4, :time 12520689563, :process 0, :index 27}
+{:type :invoke, :f :read, :value nil, :time 12579097137, :process 0, :index 28}
+{:type :ok, :f :read, :value 4, :time 12583582309, :process 0, :index 29}
+{:type :invoke, :f :write, :value 4, :time 13883142019, :process 0, :index 30}
+{:type :ok, :f :write, :value 4, :time 13888805766, :process 0, :index 31}

@@ -1,0 +1,44 @@
+0	:invoke	:write	2
+0	:ok	:write	2
+0	:invoke	:read	nil
+0	:ok	:read	2
+0	:invoke	:read	nil
+0	:ok	:read	2
+0	:invoke	:write	1
+0	:ok	:write	1
+0	:invoke	:write	1
+0	:ok	:write	1
+0	:invoke	:read	nil
+0	:ok	:read	1
+:nemesis	:info	:start	nil
+:nemesis	:info	:start	[:isolated {"localhost" #{}}]
+0	:invoke	:cas	[2 4]
+0	:fail	:cas	[2 4]
+0	:invoke	:read	nil
+0	:ok	:read	1
+0	:invoke	:read	nil
+0	:ok	:read	1
+0	:invoke	:write	0
+0	:ok	:write	0
+0	:invoke	:read	nil
+0	:ok	:read	0
+:nemesis	:info	:stop	nil
+0	:invoke	:read	nil
+0	:ok	:read	0
+:nemesis	:info	:stop	:network-healed
+0	:invoke	:cas	[2 0]
+0	:fail	:cas	[2 0]
+0	:invoke	:read	nil
+0	:ok	:read	0
+0	:invoke	:read	nil
+0	:ok	:read	0
+0	:invoke	:write	4
+0	:ok	:write	4
+:nemesis	:info	:start	nil
+:nemesis	:info	:start	[:isolated {"localhost" #{}}]
+0	:invoke	:read	nil
+0	:ok	:read	4
+0	:invoke	:cas	[4 4]
+0	:ok	:cas	[4 4]
+0	:invoke	:read	nil
+0	:ok	:read	4
