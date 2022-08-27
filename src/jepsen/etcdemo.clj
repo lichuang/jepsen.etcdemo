@@ -10,6 +10,7 @@
                     [control :as c]
                     [db :as db]
                     [generator :as gen]
+                    [independent :as independent]
                     [nemesis :as nemesis]
                     [tests :as tests]]
             [jepsen.control.util :as cu]
@@ -91,21 +92,30 @@
 
   (setup! [this test])
 
-  (invoke! [this test op]
-   (case (:f op)
-    :read (let [value (-> conn
-        (v/get "foo" {:quorum? true})
-        parse-long)]
-      (assoc op :type :ok, :value value))    
-    :write (do (v/reset! conn "foo" (:value op))
-      (assoc op :type :ok))
-    :cas (try+
-      (let [[old new] (:value op)]
-       (assoc op :type (if (v/cas! conn "foo" old new)
-                        :ok
-                        :fail)))
-      (catch [:errorCode 100] ex
-       (assoc op :type :fail, :error :not-found)))))
+  (invoke! [_ test op]
+   (let [[k v] (:value op)]
+    (try+
+     (case (:f op)
+      :read (let [value (-> conn
+          (v/get k {:quorum? true})
+          parse-long)]
+        (assoc op :type :ok, :value (independent/tuple k value)))
+
+      :write (do (v/reset! conn k v)
+        (assoc op :type :ok))
+
+      :cas (let [[old new] v]
+        (assoc op :type (if (v/cas! conn k old new)
+                         :ok
+                         :fail))))
+
+     (catch java.net.SocketTimeoutException e
+      (assoc op
+       :type  (if (= :read (:f op)) :fail :info)
+       :error :timeout))
+
+     (catch [:errorCode 100] e
+      (assoc op :type :fail, :error :not-found)))))
 
   (teardown! [this test])
 
@@ -129,18 +139,28 @@
      :os   ubuntu/os
      :nemesis         (nemesis/partition-random-halves)
      :client (Client. nil)
-     :checker         (checker/linearizable
-         {:model     (model/cas-register)
-         :algorithm :linear})     
+     :checker   (checker/compose
+         {:perf  (checker/perf)
+         :indep (independent/checker
+             (checker/compose
+              {:linear   (checker/linearizable {:model (model/cas-register)
+                  :algorithm :linear})
+              :timeline (timeline/html)}))})
      :db   (db "v3.1.5")
-     :generator (->> (gen/mix [r w cas])
-         (gen/stagger 1/50)
+     :generator  (->> (independent/concurrent-generator
+           10
+           (range)
+           (fn [k]
+            (->> (gen/mix [r w cas])
+             (gen/stagger 1/50)
+             (gen/limit 100))))
          (gen/nemesis
           (cycle [(gen/sleep 5)
            {:type :info, :f :start}
            (gen/sleep 5)
            {:type :info, :f :stop}]))
          (gen/time-limit (:time-limit opts)))}))
+
 
 (defn -main
   "Handles command line arguments. Can either run a test, or a web server for
